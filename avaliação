@@ -1,1 +1,37 @@
+//bibliotecas
+#include <stdio.h>
+#include <stdlib.h>
+//funsões
+void grupo (void);
+void tema (void);
+void opçoes (void);
+int main (void){
+  grupo();
+  tema();
+  opçoes();
+  return 0;
+}
+//equipe
+void grupo (void){
+  printf("universidade ferderal do rio grande do norte\n");
+  printf("dirciplina dtc1106-programação\n");
+  printf("desenvolverdor-Francimar Alexandre de Oliveira Dantas\n");
+  printf("\n");
+}
+//sobre o programa
+void tema (void){
+  printf("o projeto tem como objetivo administrar a entrada\n");
+  printf("saida de veiculos da universidade,\n");
+  printf("o programa mostrara, hora de chegada/saida,\n");
+  printf("tempo de permanencia de cada veiculo\n");
+  printf("\n");
+}
+//funções do programa
+void opçoes (void){
+  printf("1- verificar tempo dos veiculos\n");
+  printf("2- vargas desponiveis\n");
+  printf("3- sair");
+}
+
+
 
