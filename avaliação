@@ -1,37 +1,39 @@
-//bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
-//funsões
-void grupo (void);
-void tema (void);
-void opçoes (void);
+void inicio (void);
+void plano (void);
+void menu (void);
+//void cadastrar (void);
+//void vargas (void);
+//void localizar (void);
+//void sair (void);
 int main (void){
-  grupo();
-  tema();
-  opçoes();
-  return 0;
+ inicio();
+ plano();
+ menu();
+ cadastrar();
+ //vargas();
+ //localizar();
+ //sair();
+return 0;
 }
-//equipe
-void grupo (void){
-  printf("universidade ferderal do rio grande do norte\n");
-  printf("dirciplina dtc1106-programação\n");
-  printf("desenvolverdor-Francimar Alexandre de Oliveira Dantas\n");
-  printf("\n");
+void inicio (void){
+	printf("universidade ferderal do rio grande do norte\n");
+     printf("Centro de Ensino Superior do Seridó\n");
+     printf("Departamento de Computação e Tecnologia\n");
+	printf("diciplina DCT1106-PROGRAMAÇÃO\n");
+     printf("desenvolvedor- Francimar Alexandre de Oliveira Dantas\n");
+	printf("\n");	
 }
-//sobre o programa
-void tema (void){
-  printf("o projeto tem como objetivo administrar a entrada\n");
-  printf("saida de veiculos da universidade,\n");
-  printf("o programa mostrara, hora de chegada/saida,\n");
-  printf("tempo de permanencia de cada veiculo\n");
-  printf("\n");
+void plano (void){
+     printf("O presente projeto tem como objetivo desenvolver um programa de computador que possibilite aos\n");
+     printf("administradores dessas instituições controlar o fluxo, entradas e saídas de veículos em seu estabelecimento.\n");
+	printf("\n");
 }
-//funções do programa
-void opçoes (void){
-  printf("1- verificar tempo dos veiculos\n");
-  printf("2- vargas desponiveis\n");
-  printf("3- sair");
+void menu (void){
+	printf("1-cadastrar vaiculo\n");
+	printf("2-vargas desponiveis\n");
+	printf("3-virsualizar carros\n");
+	printf("4-sair");
+	printf("\n");
 }
-
-
-
