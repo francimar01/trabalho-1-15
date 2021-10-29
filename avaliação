@@ -1,10 +1,9 @@
-#include <stdio.h>
+include <stdio.h>
 #include <stdlib.h>
 void inicio (void);
 void plano (void);
 void menu (void);
 void cadastrar (void);
-//void vargas (void);
 //void localizar (void);
 //void sair (void);
 int main (void){
@@ -12,7 +11,6 @@ int main (void){
  plano();
  menu();
  cadastrar();
- //vargas();
  //localizar();
  //sair();
 return 0;
@@ -39,12 +37,14 @@ void menu (void){
 }
 //TELA DE CADASTRO
 void cadastrar(void){
-	char NOME,PLACA,CPF;
+	char NOME,CPF,MODELO;
 	printf("\t\tTELA DE CADASTRO\n");
 	printf("\t\t=================\n");
 	printf("DIGITE SEU CPF\n");
-	scanf("%s", &CPF);
+	scanf("%[^\n]", &CPF);
 	printf("DIGITE SEU NOME\n");
-	scanf("%[\n]",&NOME);
-
+	scanf("%s",&NOME);
+  printf("DIGiTE O MODELO DO CARRO\n");
+  scanf("%s",&MODELO);
 }
+//TELA LOCARLIZAR VEICULO
