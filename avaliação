@@ -1,50 +1,55 @@
-include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 void inicio (void);
 void plano (void);
-void menu (void);
+void funçoes (void);
 void cadastrar (void);
-//void localizar (void);
-//void sair (void);
+void localizar (void);
 int main (void){
  inicio();
  plano();
- menu();
+ funçoes();
  cadastrar();
- //localizar();
- //sair();
+ localizar();
 return 0;
 }
 void inicio (void){
 	printf("universidade ferderal do rio grande do norte\n");
-     printf("Centro de Ensino Superior do Seridó\n");
-     printf("Departamento de Computação e Tecnologia\n");
+  printf("Centro de Ensino Superior do Seridó\n");
+  printf("Departamento de Computação e Tecnologia\n");
 	printf("diciplina DCT1106-PROGRAMAÇÃO\n");
-     printf("desenvolvedor- Francimar Alexandre de Oliveira Dantas\n");
+  printf("desenvolvedor-Francimar Alexandre de Oliveira Dantas\n");
 	printf("\n");	
 }
 void plano (void){
-     printf("O presente projeto tem como objetivo desenvolver um programa de computador que possibilite aos\n");
-     printf("administradores dessas instituições controlar o fluxo, entradas e saídas de veículos em seu estabelecimento.\n");
+  printf("O presente projeto tem como objetivo desenvolver um"); printf("programa de computador que possibilite aos\n");
+  printf("administradores dessas instituições controlar o fluxo"); printf("entradas e saídas de veículos em seu estabelecimento.\n");
 	printf("\n");
 }
-void menu (void){
+void funçoes (void){
 	printf("1-cadastrar vaiculo\n");
 	printf("2-vargas desponiveis\n");
-	printf("3-virsualizar carros\n");
+	printf("3-localizar carros\n");
 	printf("4-sair");
 	printf("\n");
 }
 //TELA DE CADASTRO
 void cadastrar(void){
-	char NOME,CPF,MODELO;
-	printf("\t\tTELA DE CADASTRO\n");
-	printf("\t\t=================\n");
-	printf("DIGITE SEU CPF\n");
-	scanf("%[^\n]", &CPF);
-	printf("DIGITE SEU NOME\n");
-	scanf("%s",&NOME);
-  printf("DIGiTE O MODELO DO CARRO\n");
-  scanf("%s",&MODELO);
+  printf("\n\t");
+	printf("\t\tTELA DE CADASTRO\n\t");
+	printf("\t\t=================\n\t");
+	printf("DIGITE SEU CPF\n\t");
+	printf("DIGITE SEU NOME\n\t");
+  printf("DIGiTE O MODELO DO CARRO\n\t");
+  printf("precione qualquer tecla para sai:\n");
 }
 //TELA LOCARLIZAR VEICULO
+void localizar (void){
+  printf("\t\tLOCALIZAR VEICULO\n\t");
+  printf("\t\t=================\n\t");
+  printf("DIGITE SEU CPF:\n\t");
+  printf("NUMERO DA VAGA EM QUE ESTA O VEICULO:\n\t");
+  printf("HORA DE CHEGADA:\n\t");
+  printf("TEMPO DE PEMANECIA:\n\t");
+  printf("precione qualquer tecla para sai:\n");
+}
