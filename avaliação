@@ -3,7 +3,7 @@
 void inicio (void);
 void plano (void);
 void menu (void);
-//void cadastrar (void);
+void cadastrar (void);
 //void vargas (void);
 //void localizar (void);
 //void sair (void);
@@ -36,4 +36,15 @@ void menu (void){
 	printf("3-virsualizar carros\n");
 	printf("4-sair");
 	printf("\n");
+}
+//TELA DE CADASTRO
+void cadastrar(void){
+	char NOME,PLACA,CPF;
+	printf("\t\tTELA DE CADASTRO\n");
+	printf("\t\t=================\n");
+	printf("DIGITE SEU CPF\n");
+	scanf("%s", &CPF);
+	printf("DIGITE SEU NOME\n");
+	scanf("%[\n]",&NOME);
+
 }
