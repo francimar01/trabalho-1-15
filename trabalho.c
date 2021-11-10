@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <times.h>
 //funções
 void inicio (void);
 int menu (void);
@@ -12,9 +11,9 @@ void localizar (void);
 void cadastrar (void);
 void entrada (void);
 void saida (void);
-void sair(void);
 void credito (void);
 int main (void){
+
   int op;
   do {
    op = menu();
@@ -27,22 +26,22 @@ int main (void){
 	        break;
      case 4: saida();
 	        break;
-     case 5: sair();
-	        break;	
-     case 6: credito();
-	        break;		   	   		   		           
+     case 5: credito();
+	        break;	        
+	case 0: break;	
+	default: printf("Opção inválida!\n");	        	   	   		   		           
   }	 	
   }
   while (op != 0);
- printf("selecione uma opção válida\n");
-    return op;
+   printf("FIM\n");
+    return 0;
 }
 int menu (void){
 	int op;
 	printf("\tselecione uma opção:\n");
-	printf("1-localizar\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-sair\n 6-credito\n");
+	printf("1-localizar\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-credito \n 0-sair\n ");
 	scanf("%d", &op);
-	return 0;
+	return op;
 }
 void inicio (void){	
      system( " limpar || cls" );
@@ -96,8 +95,11 @@ void entrada (void){
 	printf("\tENTRADA DE VEICULOS\n");
 	printf("\t===================\n");
 	printf("\t\n");
+	getchar();
 	printf("\tDIGITE A PLACA:\n");
 	scanf("%[az-AZ-0-9]",PLACA);
+	getchar();
+	system ("pause");
 	getchar();
 	printf("\tDIGITE O MODELO:\n");
 	scanf("%[a-z]", MARCA);
@@ -109,9 +111,11 @@ void saida (void){
 	char MARCA[20];
 	printf("\t SAIDA DE VEICULO\n");
 	printf("\t=================\n");
+	getchar();
 	printf("\tDIGITE A PLACA:\n");
 	scanf("%[az-AZ-0-9]",PLACA);
 	getchar();
+	
 	printf("\tDIGITE O MODELO:\n");
 	scanf("%[a-z]", MARCA);
      getchar();
@@ -122,6 +126,5 @@ void credito(void){
 	printf("\t======\n");
 	printf("Francimar Alexandre de Oliveira Dantas\n");
 }
-void sair (void){
-	printf("fechar\n");
-}
+
+
