@@ -7,18 +7,41 @@
 //#include <times.h>
 //funções
 void inicio (void);
-void menu (void);
+int menu (void);
 void localizar (void);
 void cadastrar (void);
-void entar (void);
-void sair (void);
+void entrada (void);
+void saida (void);
+void sair(void);
+void credito (void);
 int main (void){
-  inicio(); 
-  menu();	
-  cadastrar();
-  localizar();
-  entrar();
-  sair();
+  int op;
+  do {
+   op = menu();
+   switch (op){
+  	case 1: localizar ();
+  	        break;
+  	case 2: cadastrar();
+	        break;
+     case 3: entrada();
+	        break;
+     case 4: saida();
+	        break;
+     case 5: sair();
+	        break;	
+     case 6: credito();
+	        break;		   	   		   		           
+  }	 	
+  }
+  while (op != 0);
+ printf("selecione uma opção válida\n");
+    return op;
+}
+int menu (void){
+	int op;
+	printf("\tselecione uma opção:\n");
+	printf("1-localizar\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-sair\n 6-credito\n");
+	scanf("%d", &op);
 	return 0;
 }
 void inicio (void){	
@@ -35,27 +58,13 @@ void inicio (void){
 	printf("\tPressione qualquer tecla para continuar\n");
 	getchar();
 }
-void menu (void){
-    int A;
-    system("limpar || cls");
-    printf("////////////////////////////////////////////////////////////\n");
-    printf("///\t1-LOCALIZAR VEICULO                             ///\n");
-    printf("///\t2-CADASTRAR                                    ///\n");
-    printf("///\t3-ENTRADA DE VEÍCULO                          ///\n");//incompleto
-    printf("///\t4-SAIDA DE VEÍCULO                           ///\n");//incompleto
-    printf("///\t5-SAIR                                      ///\n");//incompleto
-    printf("//////////////////////////////////////////////////////\n");
-    printf("digete uma opção:\t\n");
-    scanf("%d", &A);
-    getchar();
-}
 void cadastrar (void){
 	char PLACA[8];
 	char MARCA[20];
 	char COR[15];
 	system ("limpar || cls");
 	printf("\tBEM VINDO A PARTE DE CADASTRO\n");
-	system ("pause");
+     getchar();
 	printf("PLACA:\t\n");
 	scanf("%[az-AZ-0-9]",PLACA);
 	getchar();
@@ -65,21 +74,22 @@ void cadastrar (void){
 	printf("COR:\t\n");
 	scanf("%c", COR);
 	getchar();
+	printf("\tveiculo cadastrado com sucesso\n");
 	printf("\tPressione qualquer tecla para continuar\n");
 	getchar();
 }
 void localizar (void){
-	char PLACA[8];
+     char PLACA[8];
 	system ("limpar || cls");
 	printf("\tTELA LOCALIZAR VEICULO\n");
 	printf("\t======================\n");
-	system ("pause");
+	getchar();
 	printf("\tDIGITE A PLACA DO VEICULO:\n");
 	scanf("%[az-AZ-0-9]",PLACA);
 	getchar();
 	system ("pause");
 }
-void entar (void){
+void entrada (void){
 	char PLACA[8];
 	char MARCA[20];
 	system("limpar || cls");
@@ -93,7 +103,7 @@ void entar (void){
 	scanf("%[a-z]", MARCA);
      getchar();
 }
-void sair (void){
+void saida (void){
 	system("limpar || cls");
 	char PLACA[8];
 	char MARCA[20];
@@ -105,4 +115,13 @@ void sair (void){
 	printf("\tDIGITE O MODELO:\n");
 	scanf("%[a-z]", MARCA);
      getchar();
+}
+void credito(void){
+	system ("limpar || cls");
+	printf("\tequipe\n");
+	printf("\t======\n");
+	printf("Francimar Alexandre de Oliveira Dantas\n");
+}
+void sair (void){
+	printf("fechar\n");
 }
