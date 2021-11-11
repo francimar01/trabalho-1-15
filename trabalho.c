@@ -126,5 +126,3 @@ void credito(void){
 	printf("\t======\n");
 	printf("Francimar Alexandre de Oliveira Dantas\n");
 }
-
-
