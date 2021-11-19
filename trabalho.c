@@ -7,13 +7,13 @@
 //funções
 void inicio (void);
 int menu (void);
+void remover (void);
 void localizar (void);
 void cadastrar (void);
 void entrada (void);
 void saida (void);
 void credito (void);
 int main (void){
-
   int op;
   do {
    op = menu();
@@ -27,7 +27,9 @@ int main (void){
      case 4: saida();
 	        break;
      case 5: credito();
-	        break;	        
+	        break;	
+	case 6: remover();
+		   break;   	        
 	case 0: break;	
 	default: printf("Opção inválida!\n");	        	   	   		   		           
   }	 	
@@ -38,14 +40,8 @@ int main (void){
 }
 int menu (void){
 	int op;
-	printf("\tselecione uma opção:\n");
-	printf("1-localizar\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-credito \n 0-sair\n ");
-	scanf("%d", &op);
-	return op;
-}
-void inicio (void){	
-     system( " limpar || cls" );
-     printf("\n");
+	system ("limpar || cls");
+	printf("\n");
 	printf("//////////////////////////////////////////////////////////////////\n");
 	printf("///\tUniversidade Federal do Rio Grande do Norte           ///\n");
 	printf("///\tCentro de Ensino Superior do Seridó                  ///\n");
@@ -54,8 +50,10 @@ void inicio (void){
 	printf("///\tControle de Fluxo de Veículos                     ///\n");
 	printf("///\tdesenvolvido por Francimar Dantas                ///\n");
 	printf("///////////////////////////////////////////////////////////\n");
-	printf("\tPressione qualquer tecla para continuar\n");
-	getchar();
+	printf("\tselecione uma opção:\n");
+	printf("1-veiculos cadastrados\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-credito \n6-remover \n 0-sair\n ");
+	scanf("%d", &op);
+	return op;
 }
 void cadastrar (void){
 	char PLACA[8];
@@ -125,4 +123,11 @@ void credito(void){
 	printf("\tequipe\n");
 	printf("\t======\n");
 	printf("Francimar Alexandre de Oliveira Dantas\n");
+}
+void remover (void){
+	char PLACA[8];
+	system("limpar || cls");
+	printf("remover veiculo");
+	printf("informe a placa do veiculo:\t\n");
+	scanf("%[az-AZ-0-9]",PLACA);
 }
