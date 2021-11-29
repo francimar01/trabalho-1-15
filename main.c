@@ -51,10 +51,9 @@ int menu (void){
 	return op;
 }
 
-void remover (void){
-	char PLACA[8];
-	system("limpar || cls");
-	printf("remover veiculo");
-	printf("informe a placa do veiculo:\t\n");
-	scanf("%[az-AZ-0-9]",PLACA);
+void credito(void){
+	system ("limpar || cls");
+	printf("\tequipe\n");
+	printf("\t======\n");
+	printf("Francimar Alexandre de Oliveira Dantas\n");
 }

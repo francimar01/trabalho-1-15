@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "veiculo_cad.h"
 
 void veiculos_cad (void){
