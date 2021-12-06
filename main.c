@@ -1,10 +1,11 @@
-// projeto de Controle de Fluxo de Veículos
+// projeto de Controle de Fluxo de Veï¿½culos
 //autor: Francimar Alexandre de Oliveira Dantas
-//disciplina: DCT 1106 PROGRAMAÇÃO
+//disciplina: DCT 1106 PROGRAMAï¿½O
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//funções
+//funÃ§oes
+int validarplaca (void);
 void inicio (void);
 int menu (void);
 void credito (void);
@@ -13,20 +14,20 @@ int main (void){
   do {
    op = menu();
    switch (op){
-  	case 1: veiculos_cad ();
+  	case 1: veiculos_cad();
   	        break;
   	case 2: cadastrar();
 	        break;
-     case 3: entrada();
+    case 3: entrada();
 	        break;
-     case 4: saida();
+    case 4: saida();
 	        break;
-     case 5: credito();
+    case 5: credito();
 	        break;
 	case 6: remover();
 		   break;
 	case 0: break;
-	default: printf("Opção inválida!\n");
+	default: printf("opÃ§ao invalida!\n");
   }
   }
   while (op != 0);
@@ -35,19 +36,19 @@ int main (void){
 }
 int menu (void){
 	int op;
-	system ("limpar || cls");
 	printf("\n");
 	printf("//////////////////////////////////////////////////////////////////\n");
 	printf("///\tUniversidade Federal do Rio Grande do Norte           ///\n");
-	printf("///\tCentro de Ensino Superior do Seridó                  ///\n");
-	printf("///\tSistemas de Informação/ceres - Caicó - Bacharelado  ///\n");
-	printf("///\tdisciplina - DCT 1106 programação                  ///\n");
-	printf("///\tControle de Fluxo de Veículos                     ///\n");
+	printf("///\tCentro de Ensino Superior do Serido                  ///\n");
+	printf("///\tSistemas de Informacao/ceres - Caico - Bacharelado  ///\n");
+	printf("///\tdisciplina - DCT 1106 programacao                  ///\n");
+	printf("///\tControle de Fluxo de Veiculos                     ///\n");
 	printf("///\tdesenvolvido por Francimar Dantas                ///\n");
 	printf("///////////////////////////////////////////////////////////\n");
-	printf("\tselecione uma opção:\n");
-	printf("1-veiculos cadastrados\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-credito \n6-remover \n 0-sair\n ");
+	printf("\tselecione uma opcao:\n");
+	printf(" 1-veiculos cadastrados\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-credito \n 6-remover \n 0-sair\n ");
 	scanf("%d", &op);
+
 	return op;
 }
 
@@ -56,4 +57,10 @@ void credito(void){
 	printf("\tequipe\n");
 	printf("\t======\n");
 	printf("Francimar Alexandre de Oliveira Dantas\n");
+	printf("VALIDA PLACA\n");
+	printf("=============\n");
+	printf("https://gist.github.com/tarcisio-marinho/42d1b45111c5d9dc917398168cb9d7bf\n");//link do github
+	printf("tarcisio-marinho\n");
 }
+
+
