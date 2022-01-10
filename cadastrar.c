@@ -3,22 +3,24 @@
 #include "cadastrar.h"
 
 void cadastrar (void){
-	char PLACA[8];
-	char MARCA[20];
-	char COR[15];
+
+    int i;
+    for (i=0;i<1;i++){
 	system ("limpar || cls");
 	printf("\tBEM VINDO A PARTE DE CADASTRO\n");
-     getchar();
+    getchar();
 	printf("PLACA:\t\n");
-	scanf("%[az-AZ-0-9]",PLACA);
+    fflush(stdin);
+    gets(vei_cadastrados[i].PLACA);
 	getchar();
 	printf("MODELO:\t\n");
-	scanf("%[a-z]", MARCA);
+	gets(vei_cadastrados[i].MARCA);
 	getchar();
 	printf("COR:\t\n");
-	scanf("%c", COR);
+	gets(vei_cadastrados[i].COR);
 	getchar();
 	printf("\tveiculo cadastrado com sucesso\n");
 	printf("\tPressione qualquer tecla para continuar\n");
 	getchar();
+    }
 }
