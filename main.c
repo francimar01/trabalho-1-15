@@ -27,7 +27,7 @@ int main (void){
 	case 6: remover();
 		   break;
 	case 0: break;
-	default: printf("opçao invalida!\n");
+	default: printf("opcao invalida!\n");
   }
   }
   while (op != 0);
@@ -57,10 +57,5 @@ void credito(void){
 	printf("\tequipe\n");
 	printf("\t======\n");
 	printf("Francimar Alexandre de Oliveira Dantas\n");
-	printf("VALIDA PLACA\n");
-	printf("=============\n");
-	printf("https://gist.github.com/tarcisio-marinho/42d1b45111c5d9dc917398168cb9d7bf\n");//link do github
-	printf("tarcisio-marinho\n");
+
 }
-
-
