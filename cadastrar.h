@@ -3,13 +3,14 @@
 
 void cadastrar (void);
 int i;
-struct tp_cadasto{
+struct veiculos{
 
     char PLACA[8];
 	char MARCA[20];
 	char COR[15];
-}
-vei_cadastrados[1+1];
+};
+struct veiculos cadastro;
 
 
 #endif // CADASTRAR_H_INCLUDED
+
