@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "veiculos_cad.h"
+#include "veiculo_cad.h"
 #include "cadastrar.h"
 
 void veiculos_cad (void){
@@ -8,9 +8,9 @@ void veiculos_cad (void){
 	system ("limpar || cls");
 	printf("\tTELA  VEICULO CADASTRADOS\n");
 	printf("\t======================\n");
-	printf("PLACA:  %s\n",vei_cadastrados[i].PLACA);
-	printf("MODELO:  %s\n",vei_cadastrados[i].MARCA);
-	printf("COR:  %s\n",vei_cadastrados[i].COR);
+	printf("PLACA:  %s\n",cadastro.PLACA);
+	printf("MODELO:  %s\n",cadastro.MARCA);
+	printf("COR:  %s\n",cadastro.COR);
 	getchar();
 	system ("pause");
     }
