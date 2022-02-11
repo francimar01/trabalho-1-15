@@ -1,28 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cadastrar.h"
-#include "validação.h"
+#include "validaçao.h"
 void cadastrar (void){
-
+    fp=fopen("veiculos.dat","a+b");
+    if(fp==NULL){
+        printf("ERRO AO ABRIR O ARQUIVO!");
+    }
     int i;
     for (i=0;i<1;i++){
 	system ("limpar || cls");
-	printf("\tBEM VINDO A PARTE DE CADASTRO\n");
+	printf("===================================================================\n");
+	printf("======\t        ENTRADA DE VEICULO                           ======\n");
+	printf("===================================================================\n");
     getchar();
     do{
 	printf("PLACA:\t\n");
-    fflush(stdin);
-    gets(cadastro.PLACA);
-	getchar();
+    scanf("%s",cadastro.PLACA);
+    fputs(cadastro.PLACA,fp);
+    getchar();
     }while(!valida(cadastro.PLACA));
-	printf("MODELO:\t\n");
-	gets(cadastro.MARCA);
+	printf("MARCA/MODELO:\t\n");
+	scanf("%s",cadastro.MARCA);
+	fputs(cadastro.MARCA,fp);
 	getchar();
 	printf("COR:\t\n");
-	gets(cadastro.COR);
+	scanf("%s",cadastro.COR);
+	fputs(cadastro.COR,fp);
 	getchar();
 	printf("\tveiculo cadastrado com sucesso\n");
 	printf("\tPressione qualquer tecla para continuar\n");
 	getchar();
     }
+    fclose(fp);
 }

@@ -1,12 +1,8 @@
-// projeto de Controle de Fluxo de Veï¿½culos
-//autor: Francimar Alexandre de Oliveira Dantas
-//disciplina: DCT 1106 PROGRAMAï¿½O
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//funÃ§oes
-int validarplaca (void);
-void inicio (void);
+//funçoes
+
 int menu (void);
 void credito (void);
 int main (void){
@@ -18,14 +14,12 @@ int main (void){
   	        break;
   	case 2: cadastrar();
 	        break;
-    case 3: entrada();
+    case 3: saida();
 	        break;
-    case 4: saida();
+    case 4: relatorio();
 	        break;
     case 5: credito();
 	        break;
-	case 6: remover();
-		   break;
 	case 0: break;
 	default: printf("opcao invalida!\n");
   }
@@ -45,8 +39,15 @@ int menu (void){
 	printf("///\tControle de Fluxo de Veiculos                     ///\n");
 	printf("///\tdesenvolvido por Francimar Dantas                ///\n");
 	printf("///////////////////////////////////////////////////////////\n");
-	printf("\tselecione uma opcao:\n");
-	printf(" 1-veiculos cadastrados\n 2-cadastrar\n 3-entrada \n 4-saida\n 5-credito \n 6-remover \n 0-sair\n ");
+	printf("\t SELECIONE UMA OPCAO\n");
+	printf("=============================================================\n");
+	printf("====== 1) ESTACIONAMENTO                               ======\n");
+	printf("====== 2) ENTRADA DE VEICULO                           ======\n");
+	printf("====== 3) SAIDA DE VEICULO                             ======\n");
+	printf("====== 4) RELATORIO                                    ======\n");
+	printf("====== 5) EQUIPE                                       ======\n");
+	printf("====== 0) FECHAR PROGRAMA                              ======\n");
+	printf("=============================================================\n");
 	scanf("%d", &op);
 
 	return op;

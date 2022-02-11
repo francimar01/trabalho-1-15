@@ -4,14 +4,12 @@
 #include "cadastrar.h"
 
 void veiculos_cad (void){
-    for(i=0;i<1;i++){
-	system ("limpar || cls");
-	printf("\tTELA  VEICULO CADASTRADOS\n");
-	printf("\t======================\n");
-	printf("PLACA:  %s\n",cadastro.PLACA);
-	printf("MODELO:  %s\n",cadastro.MARCA);
-	printf("COR:  %s\n",cadastro.COR);
-	getchar();
-	system ("pause");
-    }
+fp=fopen("veiculos.dat","rb");
+if(fp==NULL){
+    printf("ERRO AO ABRIR O ARQUIVO!");
+}
+printf("================================================\n");
+printf("=======\t        ESTACIONAMENTO            ======\n");
+printf("================================================");
+
 }

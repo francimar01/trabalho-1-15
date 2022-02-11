@@ -11,6 +11,7 @@ struct veiculos{
 };
 struct veiculos cadastro;
 
+FILE*fp;
+
 
 #endif // CADASTRAR_H_INCLUDED
-
