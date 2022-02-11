@@ -3,14 +3,13 @@
 
 void cadastrar (void);
 int i;
-struct veiculos{
+typedef struct veiculos{
 
     char PLACA[8];
 	char MARCA[20];
 	char COR[15];
 };
 struct veiculos cadastro;
-
 FILE*fp;
 
 

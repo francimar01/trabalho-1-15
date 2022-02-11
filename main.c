@@ -55,8 +55,9 @@ int menu (void){
 
 void credito(void){
 	system ("limpar || cls");
-	printf("\tequipe\n");
-	printf("\t======\n");
+	printf("===================================================\n");
+	printf("======        \tequipe                       ======\n");
+	printf("===================================================\n");
 	printf("Francimar Alexandre de Oliveira Dantas\n");
 
 }
