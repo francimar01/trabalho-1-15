@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//funçoes
+
 
 int menu (void);
+void sobre(void);
 void credito (void);
 int main (void){
   int op;
@@ -16,9 +17,11 @@ int main (void){
 	        break;
     case 3: saida();
 	        break;
-    case 4: relatorio();
+    case 4: credito();
 	        break;
-    case 5: credito();
+	case 5: sobre();
+	        break;
+	case 6: relatorio();
 	        break;
 	case 0: break;
 	default: printf("opcao invalida!\n");
@@ -44,8 +47,9 @@ int menu (void){
 	printf("====== 1) ESTACIONAMENTO                               ======\n");
 	printf("====== 2) ENTRADA DE VEICULO                           ======\n");
 	printf("====== 3) SAIDA DE VEICULO                             ======\n");
-	printf("====== 4) RELATORIO                                    ======\n");
-	printf("====== 5) EQUIPE                                       ======\n");
+	printf("====== 4) EQUIPE                                       ======\n");
+	printf("====== 5) SOBRE                                        ======\n");
+	printf("====== 6) RELATORIOS                                   ======\n");
 	printf("====== 0) FECHAR PROGRAMA                              ======\n");
 	printf("=============================================================\n");
 	scanf("%d", &op);
@@ -58,6 +62,21 @@ void credito(void){
 	printf("===================================================\n");
 	printf("======        \tequipe                       ======\n");
 	printf("===================================================\n");
-	printf("Francimar Alexandre de Oliveira Dantas\n");
+
+	printf("===================================================\n");
+	printf("======Francimar Alexandre de Oliveira Dantas ======\n");
+	printf("===================================================\n");
+
+
+}
+void sobre (void){
+printf("=============================================================\n");
+printf("======\t            SOBRE O PROJETO                    ======\n");
+printf("=============================================================\n");
+printf("=== o programa tema funçao de administra o fluxo de       ===\n");
+printf("=== entrada e saida de veiculos do estacionamento da UFRN.===\n");
+printf("=============================================================\n");
+
+
 
 }
