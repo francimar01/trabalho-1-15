@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "validação.h"
-
+#include "validaçao.h"
+#include "cadastrar.h"
 int valida(char *placa){
     if(strlen(placa) != 7){
         return 0;
@@ -20,3 +20,4 @@ int valida(char *placa){
     }
     return 1;
 }
+
