@@ -5,9 +5,11 @@ char menuveiculo(void);
 
 void telaveiculo(void);
 void cadastrar (void);
-void veiculo_cad (void);
+void estaciona(void);
 void saida(void);
-
+void entrada(void);
+void editarveiculo(void);
+void exclveiculo(void);
 
 typedef struct veiculos{
 
