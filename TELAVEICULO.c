@@ -1,6 +1,9 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
+#include <string.h>
 #include "TELAVEICULO.h"
+
+
 
 void telaveiculo(void){
 char opcao;
@@ -43,8 +46,8 @@ return op;
 }
 
 void cadastrar(void){
-
-arq=fopen("veiculos.txt","a");
+FILE*arq;
+arq=fopen("veiculos.dat","ab");
 if(arq == NULL){
     printf("ERRO AO TENTAR ABRIR O ARQUIVO!");
 }
@@ -60,13 +63,24 @@ if(arq == NULL){
     getchar();
     do{
     printf("DIGITE A PLACA:\n");
-    gets(carro.PLACA);
-    }while(!valida(carro.PLACA));
-    printf("DIGITE A MARCA/MODELO DO VEICULO:");
-    gets(carro.MARCA);
-    printf("DIGITE A COR DO VEICULO:");
-    gets(carro.COR);
-    fwrite(&carro, sizeof(struct veiculos), 1, arq);
+    gets(veiculo.PLACA);
+    strupr(veiculo.PLACA);
+    }while(!valida(veiculo.PLACA));
+    printf("DIGITE A MARCA DO VEICULO:\n");
+    gets(veiculo.MARCA);
+    strupr(veiculo.MARCA);
+    do{
+    printf("DIGITE SEU NOME:\n");
+    gets(veiculo.NOME);
+    strupr(veiculo.NOME);
+    }while(!validarNome(veiculo.NOME));
+    printf("DIGITE SUA CIDADE:\n");
+    gets(veiculo.cidade);
+    strupr(veiculo.cidade);
+    printf("DIGITE SEU ESTADO (APENAS SIGLAS ex. RN,PB,SP...)\n");
+    gets(veiculo.estado);
+    strupr(veiculo.estado);
+    fwrite(&veiculo, sizeof(struct tVeiculo), 1, arq);
 	printf("\tVEICULO CADASTRADO COM SUCESSO\n");
 	printf("\tPressione ENTER para continuar\n");
 	getchar();
@@ -75,81 +89,183 @@ if(arq == NULL){
 }
 
 void estaciona(void){
-FILE*arq;
-arq=fopen("veiculos.txt","rb");
-if(arq == NULL){
-    printf("ERRO AO ABRIR O ARQUIVO");
-}
-    printf("===========================================================================\n");
+
+FILE*estacio;
+estacio=fopen("estaciona.dat","rb");
+int i=1;
+	system("cls");
+
+	printf("===========================================================================\n");
     printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
     printf("===========================================================================\n");
     printf("===========================================================================\n");
-    printf("======                      ESTACIONAMENTO                           ======\n");
+    printf("======                        ESTACIONAMENTO                         ======\n");
     printf("===========================================================================\n");
 
-while(!feof(arq)){
-fread(&carro, sizeof(struct veiculos),1, arq);
-if(!feof(arq))
-printf("PLACA: %s\nMARCA/MODELO: %s\nCOR: %s\n=========\n ",carro.PLACA,carro.MARCA,carro.COR);
+while(!feof(estacio)){
+fread(&veiculo, sizeof(struct tVeiculo),1, estacio);
+if(!feof(estacio))
+printf("%d=PLACA: %s\nMARCA/MODELO: %s\nCIDADE: %s\nESTADO: %s\nNOME: %s\n=========\n ",i,veiculo.PLACA,veiculo.MARCA,veiculo.cidade,veiculo.estado,veiculo.NOME);
+i++;
 }
 system("pause");
-fclose(arq);
-
-}
-
-
-
-void saida(void){
-    FILE*arq = fopen("veiculos.txt", "rw");
-    FILE* novoArquivo = fopen("temp.txt", "w");
-    char placa[50];
-    printf("===========================================================================\n");
-    printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
-    printf("===========================================================================\n");
-    printf("===========================================================================\n");
-    printf("======                    SAIDA DE VEICULO                           ======\n");
-    printf("===========================================================================\n");
-    printf("DIGITE A PLACA : ");
-    scanf("%s", placa);
-
-    while(!feof(arq)){
-        fread(&carro, sizeof(struct veiculos),1, arq);
-        if(strcmp(placa, carro.PLACA)){
-            fwrite(&carro, sizeof(struct veiculos), 1, novoArquivo);
-        }
-    }
-    fclose(novoArquivo);
-    fclose(arq);
-    remove("veiculos.txt");
-    rename("temp.txt", "veiculos.txt");
-}
-
-void editarveiculo(void){
-printf("===========================================================================\n");
-printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
-printf("===========================================================================\n");
-printf("===========================================================================\n");
-printf("======                   ATUALIZAR DADOS                             ======\n");
-printf("===========================================================================\n");
-system("pause");
+fclose(estacio);
 }
 
 void entrada(void){
-printf("===========================================================================\n");
-printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
-printf("===========================================================================\n");
-printf("===========================================================================\n");
-printf("======                   ENTARADA DE VEICULO                         ======\n");
-printf("===========================================================================\n");
-system("pause");
+FILE*arq;
+FILE*estacio;
+    int i=1;
+    int id;
+arq=fopen("veiculos.dat","rb");
+estacio=fopen("estaciona.dat","a");
+
+	system("cls");
+	printf("===========================================================================\n");
+    printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
+    printf("===========================================================================\n");
+    printf("===========================================================================\n");
+    printf("======                    ENTRADA DE VEICULOS                        ======\n");
+    printf("===========================================================================\n");
+       while(fread(&veiculo,sizeof(struct tVeiculo),1,arq)){
+if(!feof(arq))
+printf("%d=PLACA: %s\nMARCA/MODELO: %s\nCIDADE: %s\nESTADO: %s\nNOME: %s\n=========\n ",i,veiculo.PLACA,veiculo.MARCA,veiculo.cidade,veiculo.estado,veiculo.NOME);
+i++;
+}
+      printf("DIGITE O INDICE DO VEICULO:\n");
+      scanf("%d",&id);
+      getchar();
+      id--;
+      if(id>=0&&id<i-1){
+             fseek(arq,id*sizeof(struct tVeiculo),SEEK_SET);
+        fwrite(&veiculo,sizeof(struct tVeiculo),1,estacio);
+      }
+      fclose(arq);
+      fclose(estacio);
+}
+
+void saida(void){
+    FILE*estacio;
+    FILE*tempo;
+    estacio=fopen("estaciona.dat","rb");
+    tempo=fopen("tempo.dat","wb");
+    int i=1;
+    int id;
+    system("cls");
+	printf("===========================================================================\n");
+    printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
+    printf("===========================================================================\n");
+    printf("===========================================================================\n");
+    printf("======                     SAIDA DE VEICULOS                         ======\n");
+    printf("===========================================================================\n");
+
+while(!feof(estacio)){
+fread(&veiculo, sizeof(struct tVeiculo),1, estacio);
+if(!feof(estacio))
+printf("%d=PLACA: %s\nMARCA/MODELO: %s\nCIDADE: %s\nESTADO: %s\nNOME: %s\n=========\n ",i,veiculo.PLACA,veiculo.MARCA,veiculo.cidade,veiculo.estado,veiculo.NOME);
+i++;
+}
+      printf("DIGITE O INDICE DO VEICULO:\n");
+      scanf("%d",&id);
+      getchar();
+      id--;
+        while(!feof(estacio)){
+            if(id>=0&&id<i-1){
+        fread(&veiculo,sizeof(struct tVeiculo),1,estacio);
+         if(strcmp(id,&i)){
+            fwrite(&veiculo,sizeof(struct tVeiculo),1,tempo);
+         }
+    }
+      }
+      fclose(tempo);
+      fclose(estacio);
+      remove("estaciona.dat");
+      rename("tempo.dat","estaciona.dat");
 }
 
 void exclveiculo(void){
-printf("===========================================================================\n");
-printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
-printf("===========================================================================\n");
-printf("===========================================================================\n");
-printf("======                   EXCLUIR VEICULO                             ======\n");
-printf("===========================================================================\n");
-system("pause");
+FILE*arq;
+FILE*tempo;
+arq=fopen("veiculos.dat","rb");
+tempo=fopen("tempo.dat","wb");
+int i=1;
+int id;
+char placa[12];
+    system("cls");
+	printf("===========================================================================\n");
+    printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
+    printf("===========================================================================\n");
+    printf("===========================================================================\n");
+    printf("======                      EXCLUIR VEICULOS                         ======\n");
+    printf("===========================================================================\n");
+while(!feof(arq)){
+fread(&veiculo, sizeof(struct tVeiculo),1, arq);
+if(!feof(arq))
+printf("%d=PLACA: %s\nMARCA/MODELO: %s\nCIDADE: %s\nESTADO: %s\nNOME: %s\n=========\n ",i,veiculo.PLACA,veiculo.MARCA,veiculo.cidade,veiculo.estado,veiculo.NOME);
+i++;
+}
+      printf("DIGITE O INDICE DO VEICULO:\n");
+      scanf("%d",&id);
+
+    while(!feof(arq)){
+            if(id>=0&&id<i-1){
+        fread(&veiculo,sizeof(struct tVeiculo),1,arq);
+         if(strcmp(id,&i)){
+            fwrite(&veiculo,sizeof(struct tVeiculo),1,tempo);
+         }
+    }
+    }
+    fclose(arq);
+    fclose(tempo);
+    remove("veiculos.dat");
+    rename("tempo.dat","veiculos.dat");
+}
+
+void editarveiculo(void){
+    FILE*arq;
+    arq=fopen("veiculos.dat","rb+");
+
+    int i=1;
+    int id;
+    if(arq){
+    system("cls");
+	printf("===========================================================================\n");
+    printf("======       SISTEMA DE CONTROLE DE FLUXO DE VEICULOS                ======\n");
+    printf("===========================================================================\n");
+    printf("===========================================================================\n");
+    printf("======                      EDITAR VEICULOS                          ======\n");
+    printf("===========================================================================\n");
+    while(fread(&veiculo,sizeof(struct tVeiculo),1,arq)){
+if(!feof(arq))
+printf("%d=PLACA: %s\nMARCA/MODELO: %s\nCIDADE: %s\nESTADO: %s\nNOME: %s\n=========\n ",i,veiculo.PLACA,veiculo.MARCA,veiculo.cidade,veiculo.estado,veiculo.NOME);
+i++;
+}
+      printf("DIGITE O INDICE DO VEICULO QUE DESEJA EDITAR:");
+      scanf("%d",&id);
+      getchar();
+      id--;
+      if(id>=0&&id<i-1){
+        printf("DIGITE A PLACA:\n");
+        scanf("%s",veiculo.PLACA);
+        strupr(veiculo.PLACA);
+        printf("DIGITE O MODELO:\n");
+        scanf("%s",veiculo.MARCA);
+        strupr(veiculo.MARCA);
+        printf("DIGITE SEU NOME:\n");
+        scanf("%s",veiculo.NOME);
+        strupr(veiculo.NOME);
+        printf("DIGITE A CIDADE:\n");
+        scanf("%s",veiculo.cidade);
+        strupr(veiculo.cidade);
+        printf("DIGITE SEU ESTADO:\n");
+        scanf("%s",veiculo.estado);
+        strupr(veiculo.estado);
+        fseek(arq,id*sizeof(struct tVeiculo),SEEK_SET);
+        fwrite(&veiculo,sizeof(struct tVeiculo),1,arq);
+      }
+      fclose(arq);
+    }
+
+    else
+        printf("ERRO AO ABRIR O ARQUIVO!");
 }

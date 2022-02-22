@@ -3,5 +3,4 @@
 
 int valida(char*);
 
-
 #endif // VALIDAÁAO_H_INCLUDED

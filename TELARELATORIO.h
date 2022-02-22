@@ -3,11 +3,9 @@
 
 void relatorios(void);
 char menurelatorio(void);
-void listacor(void);
-void listamarca(void);
-
-
-
+void listacidade(void);
+void listaestado(void);
+void listarcadastro(void);
 
 
 #endif // TELARELATORIO_H_INCLUDED

@@ -30,47 +30,52 @@ int main (void){
 }
 int menu (void){
 	int op;
+   system("cls");
+
 	printf("\n");
-	printf("//////////////////////////////////////////////////////////////////\n");
-	printf("///\tUniversidade Federal do Rio Grande do Norte           ///\n");
-	printf("///\tCentro de Ensino Superior do Seridó                  ///\n");
-	printf("///\tSistemas de Informação/ceres - Caicó - Bacharelado  ///\n");
-	printf("///\tdisciplina - DCT 1106 programação                  ///\n");
-	printf("///\tControle de Fluxo de Veiculos                    ///\n");
-	printf("///\tdesenvolvido por Francimar Dantas                ///\n");
-	printf("///////////////////////////////////////////////////////////\n");
-	printf("\t SELECIONE UMA OPÇÃO\n");
-	printf("=============================================================\n");
-	printf("====== 1) TELA VEICULO                                 ======\n");
-	printf("====== 2) TELA RELATORIO                               ======\n");
-	printf("====== 3) EQUIPE                                       ======\n");
-	printf("====== 4) SOBRE                                        ======\n");
-	printf("====== 0) FECHAR PROGRAMA                              ======\n");
-	printf("=============================================================\n");
+	printf("==============================================================\n");
+	printf("===  Universidade Federal do Rio Grande do Norte           ===\n");
+	printf("===  Centro de Ensino Superior do Seridó                   ===\n");
+	printf("===  Sistemas de Informação/ceres - Caicó - Bacharelado    ===\n");
+	printf("===  disciplina - DCT 1106 programação                     ===\n");
+	printf("===  Controle de Fluxo de Veiculos                         ===\n");
+	printf("===  desenvolvido por Francimar Dantas                     ===\n");
+	printf("==============================================================\n");
+	printf("==============================================================\n");
+	printf("===                SELECIONE UMA OPÇÃO                     ===\n");
+	printf("==============================================================\n");
+	printf("====== 1) MENU VEICULO                                  ======\n");
+	printf("====== 2) RELATORIO                                     ======\n");
+	printf("====== 3) EQUIPE                                        ======\n");
+	printf("====== 4) SOBRE                                         ======\n");
+	printf("====== 0) FECHAR PROGRAMA                               ======\n");
+	printf("==============================================================\n");
 	scanf("%d", &op);
 
 	return op;
 }
 
 void credito(void){
-	system ("limpar || cls");
+	system ("cls");
 	printf("===================================================\n");
-	printf("======        \tequipe                       ======\n");
+	printf("======            EQUIPE                     ======\n");
 	printf("===================================================\n");
-
 	printf("===================================================\n");
 	printf("======Francimar Alexandre de Oliveira Dantas ======\n");
 	printf("===================================================\n");
-
+    system("pause");
 
 }
 void sobre (void){
-printf("=============================================================\n");
-printf("======\t            SOBRE O PROJETO                    ======\n");
-printf("=============================================================\n");
-printf("=== o programa tema funçao de administra o fluxo de       ===\n");
-printf("=== entrada e saida de veiculos do estacionamento da UFRN.===\n");
-printf("=============================================================\n");
-
+    system("cls");
+printf("=======================================================================\n");
+printf("======\t            SOBRE O PROJETO                               =====\n");
+printf("=======================================================================\n");
+printf("=== Projeto utilizado como forma de avaliação da disciplina DCT 1106===\n");
+printf("=== -Programação UFRN.                                              ===\n");
+printf("=== Sistema de controle de fluxo de veículos, administrar entrada   ===\n");
+printf("=== e saida dos veículos do estacionamento.                         ===\n");
+printf("=======================================================================\n");
+system("pause");
 }
 

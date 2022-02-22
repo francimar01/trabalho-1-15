@@ -1,24 +1,23 @@
 #ifndef TELAVEICULO_H_INCLUDED
 #define TELAVEICULO_H_INCLUDED
 
-char menuveiculo(void);
-
+typedef struct tVeiculo{
+  char NOME[90];
+  char PLACA[8];
+  char MARCA[20];
+  char cidade[20];
+  char estado[3];
+};
+struct tVeiculo veiculo;
 void telaveiculo(void);
-void cadastrar (void);
-void estaciona(void);
-void saida(void);
-void entrada(void);
+char menuveiculo(void);
+int cont;
+
+void cadastrar(void);
 void editarveiculo(void);
+void estaciona(void);
+void entrada(void);
+void saida(void);
 void exclveiculo(void);
 
-typedef struct veiculos{
-
-    char PLACA[8];
-	char MARCA[20];
-	char COR[15];
-
-};
-struct veiculos carro;
-
-FILE*arq;
 #endif // TELAVEICULO_H_INCLUDED
